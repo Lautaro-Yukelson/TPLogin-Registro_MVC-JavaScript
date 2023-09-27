@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+@{
+    if (ViewBag.EstadoSesion == -2){
+        <p>No estas logeado</p>
+    } else if (ViewBag.EstadoSesion == 1){
+        <p>Te logeaste correctamente</p>
+    }
+    <p>@ViewBag.EstadoSesion</p>
+}
