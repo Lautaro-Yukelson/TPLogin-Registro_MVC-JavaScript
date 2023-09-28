@@ -2,35 +2,47 @@
     ViewData["Title"] = "Register";
 }
 
-<form action="RegisterForm" method="post">
-  <div class="form-group">
+<div class="background">
+    <div class="shape" id="b1"></div>
+    <div class="shape" id="b2">></div>
+</div>
+<form action="RegisterForm" method="post" id="registrar">
+<h3>Registrarse</h3>
+  <div id="regitros">
+    <div class="c">
+    <div class="form-group">
     <label for="NombreUsuario">Nombre de Usuario</label>
-    <input type="text" class="form-control" name="NombreUsuario" id="NombreUsuario" placeholder="Usuario...">
+    <input type="text"  name="NombreUsuario" id="NombreUsuario" placeholder="Usuario...">
   </div>
   <div class="form-group">
     <label for="ContrasenaR">Contraseña</label>
-    <input type="password" class="form-control" name="Contrasena" id="ContrasenaR" placeholder="Contraseña...">
+    <input type="password"  name="Contrasena" id="ContrasenaR" placeholder="Contraseña...">
     <small class="form-text text-muted">La contraseña debe tener 8 o más caracteres, un caracteres especial y una letra mayúscula</small>
   </div>
   <div class="form-group">
     <label for="Nombre">Nombre real</label>
-    <input type="text" class="form-control" name="Nombre" id="Nombre" placeholder="Nombre...">
+    <input type="text"  name="Nombre" id="Nombre" placeholder="Nombre...">
   </div>
-  <div class="form-group">
-    <label for="Email">Email</label>
-    <input type="email" class="form-control" name="Email" id="Email" placeholder="Email...">
   </div>
-  <div class="form-group">
-    <label for="idPregunta">Pregunta de Seguridad</label>
-    <select class="form-control" id="idPregunta">
-        @foreach(Pregunta pregunta in ViewBag.Preguntas){
-            <option value="@pregunta.idPregunta">@pregunta.Enunciado</option>
-        }
-    </select>
-  </div>
+  <div class="c">
     <div class="form-group">
-    <label for="RespuestaPregunta">Respuesta a la pregunta</label>
-    <input type="text" class="form-control" name="RespuestaPregunta" id="RespuestaPregunta" placeholder="Respuesta...">
+        <label for="Email">Email</label>
+        <input type="email"  name="Email" id="Email" placeholder="Email...">
+      </div>
+      <div class="form-group">
+        <label for="idPregunta">Pregunta de Seguridad</label>
+        <select id="idPregunta">
+            @foreach(Pregunta pregunta in ViewBag.Preguntas){
+                <option value="@pregunta.idPregunta">@pregunta.Enunciado</option>
+            }
+        </select>
+      </div>
+        <div class="form-group">
+        <label for="RespuestaPregunta">Respuesta a la pregunta</label>
+        <input type="text"  name="RespuestaPregunta" id="RespuestaPregunta" placeholder="Respuesta...">
+      </div>
+  <button type="submit" id="bc">Submit</button>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+  
 </form>

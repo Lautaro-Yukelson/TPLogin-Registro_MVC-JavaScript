@@ -2,14 +2,22 @@
     ViewData["Title"] = "Login";
 }
 
+
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
 <form action="LoginForm" method="post">
-  <div class="form-group">
-    <label for="NombreUsuario">Nombre de Usuario</label>
-    <input type="text" class="form-control" name="NombreUsuario" id="NombreUsuario" placeholder="Usuario...">
-  </div>
-  <div class="form-group">
+    <h3>Inicia Sesion</h3>
+
+    <label for="NombreUsuario">Usuario</label>
+    <input type="text" name="NombreUsuario" id="NombreUsuario" placeholder="Usuario...">
+
     <label for="Contrasena">Contraseña</label>
-    <input type="password" class="form-control" name="Contrasena" id="Contrasena" placeholder="Contraseña...">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+    <input type="password" name="Contrasena" id="Contrasena" placeholder="Contraseña...">
+
+    <button type="submit">login</button>
+    <div class="olvide">
+      <div class="fb">Olvide mi contraseña</div>
+    </div>
 </form>
