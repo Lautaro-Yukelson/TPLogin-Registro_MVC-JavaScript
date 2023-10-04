@@ -18,6 +18,14 @@ public static class BD
 {
     private static string _connectionString = "Server=localhost;DataBase=LoginRegister;Trusted_Connection=True;";
 
+    public static Pregunta ObtenerPregunta(int idPregunta){
+        string sql = "SELECT * FROM Preguntas WHERE idPregunta = @idPregunta";
+        using (SqlConnection db = new SqlConnection(_connectionString)){
+            return db.QueryFirstOrDefault<Pregunta>(sql, new {idPregunta});
+        }
+
+    }
+
     public static List<Pregunta> ObtenerPreguntas(){
         string sql = "SELECT * FROM Preguntas";
         using (SqlConnection db = new SqlConnection(_connectionString)){
@@ -36,6 +44,13 @@ public static class BD
         string sql = "INSERT INTO Usuarios (NombreUsuario, Contrasena, Nombre, Email, idPregunta, RespuestaPregunta) VALUES (@NombreUsuario, @Contrasena, @Nombre, @Email, @idPregunta, @RespuestaPregunta)";
         using (SqlConnection db = new SqlConnection(_connectionString)){
             db.Execute(sql, new {user.NombreUsuario, user.Contrasena, user.Nombre, user.Email, user.idPregunta, user.RespuestaPregunta});
+        }
+    }
+
+    public static void EditarContrasena(int idUsuario, string nueva){
+        string sql = "UPDATE Usuarios SET Contrasena = @nuevaPsw WHERE idUsuario = @id";
+        using (SqlConnection db = new SqlConnection(_connectionString)){
+            db.Execute(sql, new {id = idUsuario, nuevaPsw = nueva});
         }
     }
 }

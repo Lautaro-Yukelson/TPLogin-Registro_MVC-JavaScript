@@ -1,0 +1,19 @@
+<form action="ResetPsw" method="post">
+    <div class="form-group">
+        <label for="username">Nombre de usuario</label>
+        <input type="text" class="form-control" name="username" id="username" placeholder="Usuario...">
+    </div>
+    <div class="form-group">
+        <label for="idPregunta">Pregunta de Seguridad</label>
+        <select name="idPregunta" id="idPregunta">
+            @foreach(Pregunta pregunta in ViewBag.Preguntas){
+                <option value="@pregunta.idPregunta">@pregunta.Enunciado</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="respuesta">Respuesta</label>
+        <input type="text" class="form-control" name="respuesta" id="respuesta" placeholder="Respuesta...">
+    </div>
+    <button type="submit">Continuar</button>
+</form>

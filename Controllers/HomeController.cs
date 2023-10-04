@@ -53,7 +53,27 @@ public class HomeController : Controller
 
     public IActionResult Olvide()
     {
+        ViewBag.Preguntas = BD.ObtenerPreguntas();
         return View();
+    }
+
+    [HttpPost]
+    public IActionResult ResetPsw(string username, int idPregunta, string respuesta){
+        Usuario user = BD.ObtenerUsuario(username);
+        if (user != null){
+            if (user.idPregunta == idPregunta && user.RespuestaPregunta == respuesta){
+                ViewBag.Usuario = user;
+                return View();
+            }
+        }
+        return RedirectToAction("Olvide", "Home");
+    }
+
+    [HttpPost]
+    public IActionResult Reset(int idUsuario, string password){
+        string hashContrasena = BCrypt.Net.BCrypt.HashPassword(password);
+        BD.EditarContrasena(idUsuario, hashContrasena);
+        return RedirectToAction("Login", "Home");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
