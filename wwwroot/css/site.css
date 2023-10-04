@@ -98,7 +98,8 @@ label{
     font-size: 16px;
     font-weight: 500;
 }
-input, select, option{
+
+input{
     display: block;
     height: 50px;
     width: 100%;
@@ -172,8 +173,97 @@ button{
 
 .c{
   height: 400px;
+  min-width: 300px;
 }
 
 #bc{
   margin-top: 17px;
+}
+
+
+
+
+
+
+
+
+
+
+/*-------------------------------------------------SELECT-----------------------------------------------------------------*/
+
+
+
+.custom-select {
+  position: relative;
+  font-family: Arial;
+}
+
+.custom-select select {
+  display: none;
+}
+
+.select-selected {
+  height: 50px;
+  width: 100%;
+  max-width: 326px;
+  background-color: rgba(255,255,255,0.07);
+  border-radius: 3px;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 20px;
+  right: -90px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+  width: 300px;
+  background-color: #37373e;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  height: 50px;
+  width: 100%;
+  max-width: 326px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: #2b2b2e;
 }
